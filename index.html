@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Money Flow</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Sora:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles/base.css" />
+  <link rel="stylesheet" href="styles/layout.css" />
+  <link rel="stylesheet" href="styles/components.css" />
+</head>
+<body>
+  <div class="bg-glow bg-glow-a" aria-hidden="true"></div>
+  <div class="bg-glow bg-glow-b" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <div class="topbar-main">
+      <div>
+        <h1 id="app-title">Money Flow</h1>
+        <p class="subtitle">Control mensual de ingresos, gastos y pagos</p>
+      </div>
+      <div id="save-indicator" class="save-indicator" aria-live="polite">Guardado</div>
+    </div>
+  </header>
+
+  <main class="page">
+    <section class="panel panel-summary">
+      <h2>Resumen Consolidado (3 meses)</h2>
+      <div id="global-summary" class="global-summary-grid"></div>
+    </section>
+
+    <section class="panel panel-data-tools">
+      <h2>Datos y Respaldo</h2>
+      <p class="panel-note">Exporta tu informacion a JSON o importa un respaldo para restaurar la app.</p>
+      <div id="settings-panel" class="settings-panel"></div>
+      <div class="data-tools-actions">
+        <button id="prefill-months-btn" type="button" class="btn-inline">Pre-cargar gastos de septiembre</button>
+        <button id="export-json-btn" type="button" class="btn-inline">Exportar JSON</button>
+        <button id="import-json-btn" type="button" class="btn-inline">Importar JSON</button>
+        <input id="import-json-input" type="file" accept="application/json" hidden />
+      </div>
+      <div id="data-feedback" class="data-feedback" aria-live="polite"></div>
+      <div class="quick-tips">
+        <p><strong>Tip:</strong> Usa coma para decimales, por ejemplo 12500,50.</p>
+        <p><strong>Tip:</strong> Fechas en formato DD/MM/YYYY.</p>
+      </div>
+    </section>
+
+    <section class="panel panel-months">
+      <h2>Meses Activos</h2>
+      <p class="panel-note">Edita montos y estado de pago. Los calculos se actualizan y guardan automaticamente.</p>
+      <div id="months-overview" class="months-grid"></div>
+    </section>
+
+    <section class="panel panel-cards">
+      <h2>Tarjetas</h2>
+      <p class="panel-note">Controla saldo, pago minimo y proximos vencimientos.</p>
+      <div id="cards-summary" class="cards-summary-grid"></div>
+      <div class="cards-head-actions">
+        <button id="add-card-btn" type="button" class="btn-inline">Agregar tarjeta</button>
+      </div>
+      <div id="cards-overview" class="cards-grid"></div>
+    </section>
+
+    <section class="panel panel-financings">
+      <h2>Extrafinanciamientos</h2>
+      <p class="panel-note">Monitorea saldos, cuotas mensuales y fechas de proximo pago.</p>
+      <div id="financings-summary" class="cards-summary-grid"></div>
+      <div class="cards-head-actions">
+        <button id="add-financing-btn" type="button" class="btn-inline">Agregar extrafinanciamiento</button>
+      </div>
+      <div id="financings-overview" class="cards-grid"></div>
+    </section>
+
+    <section class="panel panel-car-loan">
+      <h2>Carro</h2>
+      <p class="panel-note">Controla cuota, avance del plan y saldo estimado.</p>
+      <div id="car-summary" class="cards-summary-grid"></div>
+      <div id="car-overview"></div>
+    </section>
+
+    <section class="panel panel-conape-loan">
+      <h2>Conape</h2>
+      <p class="panel-note">Lleva el avance de tu credito de Conape con cuotas y saldo estimado.</p>
+      <div id="conape-summary" class="cards-summary-grid"></div>
+      <div id="conape-overview"></div>
+    </section>
+
+    <section class="panel panel-reports">
+      <h2>Reportes (Etapa 8)</h2>
+      <p class="panel-note">Tendencias y analitica rapida de tus 3 meses.</p>
+      <div id="reports-overview" class="reports-grid"></div>
+    </section>
+
+    <section class="panel panel-state">
+      <details>
+        <summary>Estado Actual (debug)</summary>
+        <pre id="state-preview"></pre>
+      </details>
+    </section>
+  </main>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

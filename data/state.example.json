@@ -1,0 +1,95 @@
+{
+  "version": 1,
+  "settings": {
+    "currency": "CRC",
+    "locale": "es-CR",
+    "decimalSeparator": ",",
+    "thousandsSeparator": "",
+    "dateFormat": "DD/MM/YYYY",
+    "reminderDaysBefore": 3
+  },
+  "expenseTemplate": [
+    {
+      "id": "tpl-rent",
+      "name": "Alquiler",
+      "defaultAmount": 0
+    },
+    {
+      "id": "tpl-internet",
+      "name": "Internet",
+      "defaultAmount": 0
+    }
+  ],
+  "months": [
+    {
+      "id": "2026-07",
+      "label": "julio de 2026",
+      "incomes": {
+        "fixedSalary": 0,
+        "variable": []
+      },
+      "expenses": [],
+      "notes": ""
+    },
+    {
+      "id": "2026-08",
+      "label": "agosto de 2026",
+      "incomes": {
+        "fixedSalary": 0,
+        "variable": []
+      },
+      "expenses": [],
+      "notes": ""
+    },
+    {
+      "id": "2026-09",
+      "label": "septiembre de 2026",
+      "incomes": {
+        "fixedSalary": 0,
+        "variable": []
+      },
+      "expenses": [],
+      "notes": ""
+    }
+  ],
+  "cards": [
+    {
+      "id": "card-1",
+      "name": "Banco X Visa",
+      "currentBalance": 0,
+      "minimumPayment": 0,
+      "cutoffDate": "15/08/2026",
+      "dueDate": "22/08/2026",
+      "interestRate": 0
+    }
+  ],
+  "financings": [
+    {
+      "id": "fin-1",
+      "entity": "Financiera Y",
+      "totalBalance": 0,
+      "monthlyInstallment": 0,
+      "pendingInstallments": 0,
+      "nextPaymentDate": "20/08/2026",
+      "interestRate": 0
+    }
+  ],
+  "carLoan": {
+    "monthlyPayment": 0,
+    "installmentsPaid": 0,
+    "installmentsTotal": 0,
+    "estimatedBalance": 0,
+    "nextPaymentDate": ""
+  },
+  "conapeLoan": {
+    "monthlyPayment": 0,
+    "installmentsPaid": 0,
+    "installmentsTotal": 0,
+    "estimatedBalance": 0,
+    "nextPaymentDate": ""
+  },
+  "metadata": {
+    "createdAtIso": "2026-08-06T00:00:00.000Z",
+    "updatedAtIso": "2026-08-06T00:00:00.000Z"
+  }
+}
