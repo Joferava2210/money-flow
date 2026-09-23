@@ -31,6 +31,17 @@ export function calculateMonthTotals(month) {
       .map((entry) => entry.amount)
   );
 
+  const totalQuincena1 = sumValues(
+    (month.expenses || [])
+      .filter((entry) => entry.quincena !== "Q2")
+      .map((entry) => entry.amount)
+  );
+  const totalQuincena2 = sumValues(
+    (month.expenses || [])
+      .filter((entry) => entry.quincena === "Q2")
+      .map((entry) => entry.amount)
+  );
+
   const totalIncome = fixed + variableIncome;
   const pendingExpenses = Math.max(totalExpenses - paidExpenses, 0);
 
@@ -40,7 +51,9 @@ export function calculateMonthTotals(month) {
     totalPaid: paidExpenses,
     totalPending: pendingExpenses,
     netBalance: totalIncome - totalExpenses,
-    realAvailable: totalIncome - paidExpenses
+    realAvailable: totalIncome - paidExpenses,
+    totalQuincena1,
+    totalQuincena2
   };
 }
 

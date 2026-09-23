@@ -51,7 +51,8 @@ Cada mes representa una columna de trabajo (pasado, actual, siguiente).
       "name": "Internet",
       "amount": 0,
       "isPaid": false,
-      "paidDate": ""
+      "paidDate": "",
+      "quincena": "Q1"
     }
   ],
   "notes": ""

@@ -1,5 +1,5 @@
 .topbar {
-  width: min(96vw, 1680px);
+  width: min(97vw, 1960px);
   margin: 0 auto;
   padding: 2.2rem 1.2rem 1rem;
   animation: panel-rise 0.35s ease both;
@@ -39,7 +39,7 @@
 }
 
 .page {
-  width: min(96vw, 1680px);
+  width: min(97vw, 1960px);
   margin: 0 auto;
   padding: 0.8rem 1.2rem 2.2rem;
   display: grid;

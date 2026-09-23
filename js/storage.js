@@ -40,7 +40,8 @@ function normalizeExpense(entry, index) {
     name: toSafeString(entry?.name),
     amount: toNumberOrZero(entry?.amount),
     isPaid: Boolean(entry?.isPaid),
-    paidDate: toSafeString(entry?.paidDate)
+    paidDate: toSafeString(entry?.paidDate),
+    quincena: entry?.quincena === "Q2" ? "Q2" : "Q1"
   };
 }
 

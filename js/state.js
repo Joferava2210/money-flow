@@ -25,7 +25,8 @@ export function createExpenseItem() {
     name: "",
     amount: 0,
     isPaid: false,
-    paidDate: ""
+    paidDate: "",
+    quincena: "Q1"
   };
 }
 

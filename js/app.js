@@ -452,6 +452,14 @@ function applyFieldUpdate(target) {
       entry.isPaid = Boolean(target.checked);
       return true;
     }
+    case "update-expense-quincena": {
+      const entry = month.expenses.find((item) => item.id === entryId);
+      if (!entry) {
+        return false;
+      }
+      entry.quincena = target.value === "Q2" ? "Q2" : "Q1";
+      return true;
+    }
     default:
       return false;
   }
@@ -574,7 +582,8 @@ function handleEditorClick(event) {
         name: entry.name,
         amount: Number(entry.amount) || 0,
         isPaid: Boolean(entry.isPaid),
-        paidDate: entry.paidDate || ""
+        paidDate: entry.paidDate || "",
+        quincena: entry.quincena === "Q2" ? "Q2" : "Q1"
       }));
 
       targetMonth.incomes = {

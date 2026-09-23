@@ -853,24 +853,31 @@ function renderExpenses(month, reminderDaysBefore) {
 
         return `
         <div class="line-item expense-item ${stateClass}" data-entry-id="${entry.id}" data-month-id="${month.id}">
-          <div class="field-col">
+          <div class="field-col expense-name">
             <label>Gasto</label>
             <input type="text" data-action="update-expense-name" data-month-id="${month.id}" data-entry-id="${entry.id}" value="${escapeHtml(entry.name)}" placeholder="Ej: Internet" />
           </div>
-          <div class="field-col">
+          <div class="field-col expense-amount">
             <label>Monto</label>
             <input type="text" data-action="update-expense-amount" data-month-id="${month.id}" data-entry-id="${entry.id}" value="${formatAmount(entry.amount)}" inputmode="decimal" />
           </div>
-          <div class="paid-col">
+          <div class="field-col expense-quincena">
+            <label>Quincena</label>
+            <select data-action="update-expense-quincena" data-month-id="${month.id}" data-entry-id="${entry.id}">
+              <option value="Q1" ${entry.quincena !== "Q2" ? "selected" : ""}>Quincena 1</option>
+              <option value="Q2" ${entry.quincena === "Q2" ? "selected" : ""}>Quincena 2</option>
+            </select>
+          </div>
+          <div class="paid-col expense-paid">
             <label>Pagado</label>
             <input type="checkbox" data-action="update-expense-paid" data-month-id="${month.id}" data-entry-id="${entry.id}" ${entry.isPaid ? "checked" : ""} />
             <span class="expense-status status-${status.code}" data-role="status-badge">${status.label}</span>
           </div>
-          <div class="field-col">
+          <div class="field-col expense-date">
             <label>Fecha pago</label>
             <input type="text" class="date-field" data-action="update-expense-date" data-month-id="${month.id}" data-entry-id="${entry.id}" value="${escapeHtml(entry.paidDate || "")}" placeholder="DD/MM/YYYY" />
           </div>
-          <button type="button" class="btn-remove" data-action="remove-expense" data-month-id="${month.id}" data-entry-id="${entry.id}">Quitar</button>
+          <button type="button" class="btn-remove expense-remove" data-action="remove-expense" data-month-id="${month.id}" data-entry-id="${entry.id}">Quitar</button>
         </div>
       `;
       }
@@ -961,6 +968,14 @@ function formatMonthBlock(month, monthIndex, reminderDaysBefore) {
         <div class="metric-chip">
           <span class="label">Disponible real</span>
           <span class="value" data-month-total="realAvailable" data-month-id="${month.id}">${formatAmount(totals.realAvailable)}</span>
+        </div>
+        <div class="metric-chip">
+          <span class="label">Quincena 1</span>
+          <span class="value" data-month-total="totalQuincena1" data-month-id="${month.id}">${formatAmount(totals.totalQuincena1)}</span>
+        </div>
+        <div class="metric-chip">
+          <span class="label">Quincena 2</span>
+          <span class="value" data-month-total="totalQuincena2" data-month-id="${month.id}">${formatAmount(totals.totalQuincena2)}</span>
         </div>
       </div>
     </article>
